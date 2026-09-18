@@ -63,17 +63,15 @@
 ### 📊 数据统计 / GitHub Analytics
 
 <div align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sdhfsl&theme=tokyonight" width="100%" />
+  <img src="./assets/stats.svg" width="100%" alt="sdhfsl github stats" />
 </div>
 
 <div align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=sdhfsl&theme=tokyonight" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=sdhfsl&theme=tokyonight" />
+  <img src="./assets/langs.svg" width="100%" alt="most used languages" />
 </div>
 
 <div align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=sdhfsl&theme=tokyonight" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=sdhfsl&theme=tokyonight" />
+  <sub>📊 上面两张卡片由本仓库 Actions 每天自动生成，数据来自 GitHub 官方 API，永不挂图 ✨</sub>
 </div>
 
 <div align="center">
