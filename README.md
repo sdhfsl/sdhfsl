@@ -71,10 +71,6 @@
 </div>
 
 <div align="center">
-  <sub>🌿 上面两张卡片由本仓库 Actions 每天自动生成，森林绿主题，数据来自 GitHub 官方 API，永不挂图 ✨</sub>
-</div>
-
-<div align="center">
   <img height="170" src="https://streak-stats.demolab.com?user=sdhfsl&theme=dark&hide_border=true&background=0D1117&ring=39D353&fire=39D353&currStreakNum=39D353&sideNums=39D353&currStreakLabel=39D353&sideLabels=39D353&dates=8B949E" />
 </div>
 
@@ -92,7 +88,6 @@
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sdhfsl/sdhfsl/output/github-contribution-grid-snake.svg" />
     <img src="https://raw.githubusercontent.com/sdhfsl/sdhfsl/output/github-contribution-grid-snake.svg" alt="snake" width="100%"/>
   </picture>
-  <sub>每天自动更新 · 由 GitHub Actions 驱动 🐍🌿</sub>
 </div>
 
 ---
@@ -125,5 +120,4 @@
 
 <div align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:39d353,50:26a641,100:0e4429&height=140&section=footer&text=Thanks%20for%20visiting!&fontSize=24&fontColor=ffffff&animation=fadeIn" width="100%"/>
-  <sub>🌿 如果觉得主页好看，欢迎 Follow + Star，一起像小草一样成长！</sub>
 </div>
