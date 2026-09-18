@@ -33,7 +33,7 @@
 - 🌱 **正在学习：** `Go` · `C#` · `Python` · `Tauri` · `AI Agents` · `Docker`
 - 💡 **信条：** 让网络更自由，让交易更智能 — `Code, Network, Freedom.`
 - 📫 **怎么找到我：** 直接在 [Issues](https://github.com/sdhfsl/sdhfsl/issues) 里留言，看到必回！
-- ⚡ **Fun fact：** 2026 年 8 月 mới 加入 GitHub，23+ contributions，正在全速成长中 🌱
+- ⚡ **Fun fact：** 2026 年 8 月才加入 GitHub，正在全速成长中 🌱
 
 <br clear="both"/>
 
@@ -63,17 +63,25 @@
 ### 📊 数据统计 / GitHub Analytics
 
 <div align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=sdhfsl&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00c6ff&icon_color=00c6ff&text_color=c9d1d9&rank_icon=github" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=sdhfsl&theme=tokyonight" width="100%" />
+</div>
+
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=sdhfsl&theme=tokyonight" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=sdhfsl&theme=tokyonight" />
+</div>
+
+<div align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=sdhfsl&theme=tokyonight" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=sdhfsl&theme=tokyonight" />
+</div>
+
+<div align="center">
   <img height="170" src="https://streak-stats.demolab.com?user=sdhfsl&theme=tokyonight&hide_border=true&background=0d1117&ring=00c6ff&fire=a044ff&currStreakLabel=00c6ff" />
 </div>
 
 <div align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=sdhfsl&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00c6ff&text_color=c9d1d9&langs_count=8" />
-  <img height="170" src="https://github-profile-trophy.vercel.app/?username=sdhfsl&theme=tokyonight&no-frame=true&no-bg=true&margin-w=8&row=1&column=6" />
-</div>
-
-<div align="center">
-  <img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=sdhfsl&theme=tokyo-night&hide_border=true&bg_color=0d1117&color=00c6ff&line=a044ff&point=ffffff" />
+  <img width="100%" src="https://ghchart.rshah.org/00c6ff/sdhfsl" alt="contribution chart" />
 </div>
 
 ---
@@ -86,28 +94,19 @@
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/sdhfsl/sdhfsl/output/github-contribution-grid-snake.svg" />
     <img src="https://raw.githubusercontent.com/sdhfsl/sdhfsl/output/github-contribution-grid-snake.svg" alt="snake" width="100%"/>
   </picture>
-  <sub>每天自动更新 · 如果暂时看不到小蛇，Actions 跑一次就有了（见下方部署说明）</sub>
+  <sub>每天自动更新 · 由 GitHub Actions 驱动 🐍</sub>
 </div>
 
 ---
 
 ### 🔥 精选项目 / Featured
 
-<div align="center">
-  <a href="https://github.com/sdhfsl/v2rayN">
-    <img width="400" src="https://github-readme-stats.vercel.app/api/pin/?username=sdhfsl&repo=v2rayN&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00c6ff" />
-  </a>
-  <a href="https://github.com/sdhfsl/3x-ui">
-    <img width="400" src="https://github-readme-stats.vercel.app/api/pin/?username=sdhfsl&repo=3x-ui&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00c6ff" />
-  </a>
-  <br/>
-  <a href="https://github.com/sdhfsl/clash-verge-rev">
-    <img width="400" src="https://github-readme-stats.vercel.app/api/pin/?username=sdhfsl&repo=clash-verge-rev&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00c6ff" />
-  </a>
-  <a href="https://github.com/sdhfsl/TradingAgents">
-    <img width="400" src="https://github-readme-stats.vercel.app/api/pin/?username=sdhfsl&repo=TradingAgents&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=00c6ff" />
-  </a>
-</div>
+| 项目 | 简介 | Stars | Forks |
+| ---- | ---- | :---: | :---: |
+| 📦 [**v2rayN**](https://github.com/sdhfsl/v2rayN) | Windows / Linux / macOS 图形客户端，支持 Xray、sing-box | ![stars](https://img.shields.io/github/stars/sdhfsl/v2rayN?style=flat-square&logo=github) | ![forks](https://img.shields.io/github/forks/sdhfsl/v2rayN?style=flat-square&logo=github) |
+| 🌐 [**3x-ui**](https://github.com/sdhfsl/3x-ui) | 多协议多用户面板：Vmess / Vless / Trojan / WireGuard / Hysteria | ![stars](https://img.shields.io/github/stars/sdhfsl/3x-ui?style=flat-square&logo=github) | ![forks](https://img.shields.io/github/forks/sdhfsl/3x-ui?style=flat-square&logo=github) |
+| 🍀 [**clash-verge-rev**](https://github.com/sdhfsl/clash-verge-rev) | 基于 Tauri 的现代代理客户端，Win / macOS / Linux 通用 | ![stars](https://img.shields.io/github/stars/sdhfsl/clash-verge-rev?style=flat-square&logo=github) | ![forks](https://img.shields.io/github/forks/sdhfsl/clash-verge-rev?style=flat-square&logo=github) |
+| 🤖 [**TradingAgents**](https://github.com/sdhfsl/TradingAgents) | 多智能体 LLM 金融交易框架 | ![stars](https://img.shields.io/github/stars/sdhfsl/TradingAgents?style=flat-square&logo=github) | ![forks](https://img.shields.io/github/forks/sdhfsl/TradingAgents?style=flat-square&logo=github) |
 
 ---
 
