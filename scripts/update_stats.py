@@ -1,13 +1,5 @@
 #!/usr/bin/env python3
-"""Regenerate local stats SVG cards for the sdhfsl profile repo.
-
-Reads public data from the GitHub REST API (stdlib only) and writes:
-  assets/stats.svg  - repo / star / fork / follower overview
-  assets/langs.svg  - top-8 languages by bytes across code repos
-
-Run locally:  python scripts/update_stats.py
-In CI the workflow passes GH_TOKEN / GITHUB_TOKEN automatically.
-"""
+"""Regenerate local stats SVG cards for the sdhfsl profile repo (green forest theme)."""
 
 import json
 import os
@@ -15,7 +7,7 @@ import urllib.request
 from datetime import datetime, timezone
 
 USER = "sdhfsl"
-PROFILE_REPO = "sdhfsl"  # language stats skip this repo (no code)
+PROFILE_REPO = "sdhfsl"
 API = "https://api.github.com"
 TOKEN = os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN")
 
@@ -27,20 +19,21 @@ LANG_COLORS = {
     "C#": "#178600",
     "Rust": "#dea584",
     "Shell": "#89e051",
-    "CSS": "#563d7c",
+    "CSS": "#a074c4",
     "HTML": "#e34c26",
     "SCSS": "#c6538c",
-    "NSIS": "#777777",
+    "NSIS": "#9e9e9e",
     "Makefile": "#427819",
     "Dockerfile": "#384d54",
-    "C": "#555555",
+    "C": "#888888",
 }
 
 BG = "#0d1117"
-CARD = "#161b22"
-BORDER = "#30363d"
-TITLE = "#00c6ff"
-TEXT = "#c9d1d9"
+CARD = "#131c15"
+BORDER = "#26a641"
+BORDER_SOFT = "#23482f"
+TITLE = "#39d353"
+TEXT = "#e6f4ea"
 MUTED = "#8b949e"
 FAINT = "#6e7681"
 FONT = "font-family=\"'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif\""
@@ -59,28 +52,33 @@ def api(path):
 
 def stats_svg(public_repos, stars, forks, followers, following, updated):
     cards = [
-        ("\U0001f4e6 \u4ed3\u5e93 Repos", public_repos),
-        ("\u2b50 Stars", stars),
-        ("\U0001f374 Forks", forks),
-        ("\U0001f465 Followers", followers),
-        ("\u2795 Following", following),
+        ("📦 仓库", public_repos),
+        ("⭐ Stars", stars),
+        ("⑂ Forks", forks),
+        ("👥 粉丝", followers),
+        ("➕ 关注", following),
     ]
     rects = []
     x = 28
     for label, value in cards:
         cx = x + 68
         rects.append(
-            f'<rect x="{x}" y="76" width="136" height="82" rx="8" fill="{CARD}" stroke="{BORDER}"/>'
-            f'<text x="{cx}" y="102" text-anchor="middle" {FONT} font-size="13" fill="{MUTED}">{label}</text>'
-            f'<text x="{cx}" y="138" text-anchor="middle" {FONT} font-size="30" font-weight="700" fill="#ffffff">{value}</text>'
+            f'<rect x="{x}" y="80" width="136" height="84" rx="10" fill="{CARD}" stroke="{BORDER_SOFT}" stroke-width="1.5"/>'
+            f'<rect x="{x}" y="80" width="136" height="5" rx="2.5" fill="{TITLE}" opacity="0.9"/>'
+            f'<text x="{cx}" y="110" text-anchor="middle" {FONT} font-size="13" fill="{MUTED}">{label}</text>'
+            f'<text x="{cx}" y="146" text-anchor="middle" {FONT} font-size="30" font-weight="700" fill="{TITLE}">{value}</text>'
         )
         x += 150
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="176" viewBox="0 0 800 176">'
-        f'<rect x="1" y="1" width="798" height="174" rx="10" fill="{BG}" stroke="{BORDER}"/>'
-        f'<text x="28" y="38" {FONT} font-size="20" font-weight="700" fill="{TITLE}">\U0001f4ca sdhfsl \u7684 GitHub \u6570\u636e</text>'
-        f'<text x="28" y="60" {FONT} font-size="13" fill="{MUTED}">{public_repos} public repos \u00b7 {stars} stars earned \u00b7 {forks} forks \u00b7 updated {updated}</text>'
+        f'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="184" viewBox="0 0 800 184">'
+        f'<defs><linearGradient id="gbar" x1="0" y1="0" x2="1" y2="0">'
+        f'<stop offset="0" stop-color="#0e4429"/><stop offset="0.5" stop-color="#26a641"/><stop offset="1" stop-color="#39d353"/>'
+        f'</linearGradient></defs>'
+        f'<rect x="1" y="1" width="798" height="182" rx="12" fill="{BG}" stroke="{BORDER_SOFT}" stroke-width="1.5"/>'
+        f'<rect x="1" y="1" width="798" height="6" rx="3" fill="url(#gbar)"/>'
+        f'<text x="28" y="42" {FONT} font-size="20" font-weight="700" fill="{TITLE}">🌿 sdhfsl 的 GitHub 数据</text>'
+        f'<text x="28" y="64" {FONT} font-size="13" fill="{MUTED}">{public_repos} public repos · {stars} stars · {forks} forks · updated {updated}</text>'
         + "".join(rects) +
         "</svg>\n"
     )
@@ -88,28 +86,32 @@ def stats_svg(public_repos, stars, forks, followers, following, updated):
 
 def langs_svg(top_langs, updated):
     rows = []
-    y = 96
+    y = 100
     for name, pct in top_langs:
-        color = LANG_COLORS.get(name, "#858585")
-        w = max(8, round(pct / 100 * 440))
+        color = LANG_COLORS.get(name, "#39d353")
+        w = max(10, round(pct / 100 * 420))
         rows.append(
-            f'<circle cx="40" cy="{y - 5}" r="7" fill="{color}"/>'
-            f'<text x="56" y="{y}" {FONT} font-size="14" fill="{TEXT}">{name}</text>'
-            f'<rect x="200" y="{y - 17}" width="440" height="12" rx="6" fill="#21262d"/>'
-            f'<rect x="200" y="{y - 17}" width="{w}" height="12" rx="6" fill="{color}"/>'
-            f'<text x="652" y="{y}" {FONT} font-size="13" fill="{MUTED}">{pct:.1f}%</text>'
+            f'<circle cx="42" cy="{y - 5}" r="7" fill="{color}" stroke="#0d1117" stroke-width="1"/>'
+            f'<text x="58" y="{y}" {FONT} font-size="14" font-weight="600" fill="{TEXT}">{name}</text>'
+            f'<rect x="210" y="{y - 17}" width="420" height="13" rx="6.5" fill="#21262d"/>'
+            f'<rect x="210" y="{y - 17}" width="{w}" height="13" rx="6.5" fill="{color}"/>'
+            f'<text x="644" y="{y}" {FONT} font-size="13" font-weight="700" fill="{TITLE}">{pct:.1f}%</text>'
         )
         y += 30
-    height = y + 22
-    footer_y = y + 6
+    height = y + 30
+    footer_y = y + 10
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         f'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="{height}" viewBox="0 0 800 {height}">'
-        f'<rect x="1" y="1" width="798" height="{height - 2}" rx="10" fill="{BG}" stroke="{BORDER}"/>'
-        f'<text x="28" y="38" {FONT} font-size="20" font-weight="700" fill="{TITLE}">\U0001f4bb \u5e38\u7528\u8bed\u8a00 / Most Used Languages</text>'
-        f'<text x="28" y="60" {FONT} font-size="13" fill="{MUTED}">\u6309\u4ee3\u7801\u5b57\u8282\u7edf\u8ba1 \u00b7 \u542b\u5728\u7814 Fork \u9879\u76ee \u00b7 updated {updated}</text>'
+        f'<defs><linearGradient id="gbar2" x1="0" y1="0" x2="1" y2="0">'
+        f'<stop offset="0" stop-color="#0e4429"/><stop offset="0.5" stop-color="#26a641"/><stop offset="1" stop-color="#39d353"/>'
+        f'</linearGradient></defs>'
+        f'<rect x="1" y="1" width="798" height="{height - 2}" rx="12" fill="{BG}" stroke="{BORDER_SOFT}" stroke-width="1.5"/>'
+        f'<rect x="1" y="1" width="798" height="6" rx="3" fill="url(#gbar2)"/>'
+        f'<text x="28" y="42" {FONT} font-size="20" font-weight="700" fill="{TITLE}">💚 常用语言 / Most Used Languages</text>'
+        f'<text x="28" y="64" {FONT} font-size="13" fill="{MUTED}">按代码字节统计 · 含在研 Fork 项目 · updated {updated}</text>'
         + "".join(rows) +
-        f'<text x="28" y="{footer_y}" {FONT} font-size="12" fill="{FAINT}">\u6bcf\u65e5\u7531 Actions \u81ea\u52a8\u66f4\u65b0 \u00b7 \u6c38\u4e0d\u6302\u56fe</text>'
+        f'<text x="28" y="{footer_y}" {FONT} font-size="12" fill="{FAINT}">每日由 Actions 自动更新 · 数据来自 GitHub 官方 API · 永不挂图 🌿</text>'
         "</svg>\n"
     )
 
@@ -126,7 +128,7 @@ def main():
         name = repo["name"]
         try:
             langs = api(f"/repos/{USER}/{name}/languages")
-        except Exception as exc:  # keep old cards rather than fail the run
+        except Exception as exc:
             print(f"warn: languages for {name} failed: {exc}")
             continue
         for lang, count in langs.items():
